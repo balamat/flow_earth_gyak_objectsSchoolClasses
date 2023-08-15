@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -22,7 +23,7 @@ public class Main {
         Class_12B stud14 = new Class_12B("Paul Scholes");
         Class_12B stud15 = new Class_12B("Ryan Giggs");
 
-/* A névvel megadós paraméteres konstruktor legenerálja a jegyeket is, erre így nincs szükség */
+        /* A névvel megadós paraméteres konstruktor legenerálja a jegyeket is, erre így nincs szükség */
 //        stud01.gradeSetter();
 //        stud02.gradeSetter();
 //        stud03.gradeSetter();
@@ -34,20 +35,37 @@ public class Main {
 //        stud09.gradeSetter();
 //        stud10.gradeSetter();
 
+        /* Comparator----------------------------------------------------- */
+
+        Comparator<Class_12A> byGrades = Comparator.comparing(Class_12A::getAvgMark);
+
+        Collections.sort(Class_12A.listStudClass_12A, byGrades);
+
+//        Collections.sort(gradeRank_12A, Collections.reverseOrder());
+//        System.out.println(gradeRank_12A);
+
+        /* Comparator----------------------------------------------------- */
+
         System.out.println(Class_12A.listStudClass_12A);
-        List<Double> gradeRank_12A = new ArrayList<>();
-        gradeRank_12A.add(stud01.getAvgMark());
-        gradeRank_12A.add(stud02.getAvgMark());
-        gradeRank_12A.add(stud03.getAvgMark());
-        gradeRank_12A.add(stud04.getAvgMark());
-        gradeRank_12A.add(stud05.getAvgMark());
-        gradeRank_12A.add(stud06.getAvgMark());
-        gradeRank_12A.add(stud07.getAvgMark());
-        gradeRank_12A.add(stud08.getAvgMark());
-        gradeRank_12A.add(stud09.getAvgMark());
-        gradeRank_12A.add(stud10.getAvgMark());
-        Collections.sort(gradeRank_12A, Collections.reverseOrder());
-        System.out.println(gradeRank_12A);
+
+//        List<Double> gradeRank_12A = new ArrayList<>();
+//        gradeRank_12A.add(stud01.getAvgMark());
+//        gradeRank_12A.add(stud02.getAvgMark());
+//        gradeRank_12A.add(stud03.getAvgMark());
+//        gradeRank_12A.add(stud04.getAvgMark());
+//        gradeRank_12A.add(stud05.getAvgMark());
+//        gradeRank_12A.add(stud06.getAvgMark());
+//        gradeRank_12A.add(stud07.getAvgMark());
+//        gradeRank_12A.add(stud08.getAvgMark());
+//        gradeRank_12A.add(stud09.getAvgMark());
+//        gradeRank_12A.add(stud10.getAvgMark());
+
+        //Osztályátlag
+        double sum = 0;
+        for (int i = 0; i < Class_12A.listStudClass_12A.size(); i++) {
+            sum += Class_12A.listStudClass_12A.get(i).getAvgMark();
+        }
+        System.out.println("Az osztályátlag: " + sum / Class_12A.listStudClass_12A.size());
 
 
         System.out.println();
